@@ -1,10 +1,10 @@
 import streamlit as st
 
-# 타이틀
+# 앱 타이틀
 st.title("🏎️ F1 역사 속 전설적인 차량들")
 st.write("F1의 각 시대를 대표한 차량과 드라이버를 소개합니다!")
 
-# 데이터 정의
+# 시대별 데이터 정의
 f1_data = {
     "1950s": {
         "car": "Alfa Romeo 158",
@@ -46,12 +46,14 @@ f1_data = {
 # 사이드바에서 시대 선택
 era = st.sidebar.selectbox("시대를 선택하세요:", list(f1_data.keys()))
 
-# 선택된 시대의 정보 표시
+# 선택된 시대의 정보 불러오기
 data = f1_data[era]
+
+# 메인 정보 표시
 st.subheader(f"{era} - {data['car']}")
 st.markdown(f"**팀**: {data['team']}")
 st.markdown(f"**드라이버**: {data['driver']}")
 st.markdown(f"**설명**: {data['desc']}")
 
-# 이미지 출력
-st.image(data['image'], caption=data['car'], use_column_width=True)
+# 이미지 출력 (최신 방식)
+st.image(data['image'], caption=data['car'], use_container_width=True)
