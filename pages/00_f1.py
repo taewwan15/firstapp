@@ -1,52 +1,51 @@
 import streamlit as st
 
-# 앱 제목
-st.title("🏁 F1 시대별 대표 차량 갤러리")
-st.markdown("각 시대를 대표하는 F1 머신들의 사진과 설명을 확인해보세요!")
+st.set_page_config(page_title="F1 역사 갤러리", layout="centered")
 
-# F1 차량 데이터 (사진 포함)
+st.title("🏁 F1 시대별 대표 차량 갤러리")
+st.write("아래에서 각 시대별 F1 머신의 정보와 실물 사진을 확인하세요.")
+
+# 차량 정보 및 이미지
 f1_cars = {
     "1950s – Alfa Romeo 158": {
         "team": "Alfa Romeo",
         "driver": "Juan Manuel Fangio",
-        "desc": "초창기 F1을 지배한 전설의 머신. 1950년대 첫 챔피언십 우승차.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/33/Alfa_Romeo_158_Alfetta_%281949%29_%2816526443967%29.jpg"
+        "desc": "F1 초대 시즌 챔피언을 차지한 차량. 1938년 개발, 1950년 완전 지배.",
+        "image": "https://cdn.motor1.com/images/mgl/7eXXA/s3/alfa-romeo-158.jpg"
     },
     "1960s – Lotus 49": {
         "team": "Team Lotus",
         "driver": "Jim Clark",
-        "desc": "혁신적인 DFV 엔진 장착. 공기역학의 새 장을 연 차량.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/3/3a/Lotus_49_-_Jim_Clark_%281967%29.jpg"
+        "desc": "DFV 엔진과 모노코크 섀시로 레이싱 역사를 바꾼 혁신적 머신.",
+        "image": "https://upload.wikimedia.org/wikipedia/commons/4/42/Lotus_49_1967_Jim_Clark_Goodwood.jpg"
     },
     "1988 – McLaren MP4/4": {
         "team": "McLaren-Honda",
         "driver": "Ayrton Senna, Alain Prost",
-        "desc": "F1 역사상 가장 지배적인 머신 중 하나. 16경기 중 15승.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/e/e9/Ayrton_Senna_McLaren_MP4-4_Honda.jpg"
+        "desc": "16경기 중 15승, F1 역사상 가장 압도적인 퍼포먼스를 기록.",
+        "image": "https://cdn-5.motorsport.com/images/mgl/0ANMMl6Y/s800/ayrton-senna-mclaren-mp4-4.jpg"
     },
     "2002 – Ferrari F2002": {
         "team": "Scuderia Ferrari",
         "driver": "Michael Schumacher",
-        "desc": "슈마허 전성기의 중심. 경량화와 타이어 최적화 기술 탑재.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Ferrari_F2002_front-left_2012_Monza.jpg"
+        "desc": "미하엘 슈마허의 최강 머신, 페라리의 황금기를 상징.",
+        "image": "https://cdn-8.motorsport.com/images/mgl/0a900bb2/s800/f1-spanish-gp-2002-michael-schumacher-ferrari-f2002.jpg"
     },
     "2023 – Red Bull RB19": {
         "team": "Red Bull Racing",
         "driver": "Max Verstappen",
-        "desc": "현대 F1 기술의 정점. 22경기 중 21승의 압도적 퍼포먼스.",
-        "image": "https://upload.wikimedia.org/wikipedia/commons/0/0e/Max_Verstappen_2023_Austria_FP2.jpg"
+        "desc": "현대 F1 기술의 집약체. 22경기 중 21승이라는 경이적 기록.",
+        "image": "https://media.formula1.com/image/upload/f_auto/q_auto/fom-website/2023/Monaco/Saturday/Verstappen%20RB19.jpg"
     }
 }
 
-# 사용자 선택
+# 선택
 selection = st.selectbox("시대를 선택하세요:", list(f1_cars.keys()))
-
-# 선택된 데이터
 car = f1_cars[selection]
 
 # 출력
 st.subheader(selection)
-st.markdown(f"**팀**: {car['team']}")
-st.markdown(f"**드라이버**: {car['driver']}")
-st.markdown(f"**설명**: {car['desc']}")
+st.markdown(f"**🏢 팀**: {car['team']}")
+st.markdown(f"**🧑‍✈️ 드라이버**: {car['driver']}")
+st.markdown(f"**📝 설명**: {car['desc']}")
 st.image(car['image'], caption=selection, use_container_width=True)
