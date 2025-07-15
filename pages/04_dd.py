@@ -9,7 +9,7 @@ st.title("대한민국 지역별 에너지 사용량 시각화")
 # --------- 데이터 불러오기 ---------
 @st.cache_data
 def load_data():
-    df = pd.read_csv("에너지사용량_지역별.csv")  # CSV로 변환한 파일
+    df = pd.read_csv("한국에너지공단_에너지사용량 통계_20231231.csv")  # CSV로 변환한 파일
     return df
 
 df = load_data()
